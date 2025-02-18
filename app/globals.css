@@ -2,20 +2,306 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 222.2 84% 4.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%
   }
 }
 
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground m-0;
+  }
+}
+
+
+@layer utilities {
+  .navbar-options {
+    @apply flex sm:gap-10 gap-4
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  background-image: url('../public/MainBG.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.pitch-page {
+  background-image: url('../public/MainBG1.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.create-page {
+  background-image: url('../public/MainBG2.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.profile-page {
+  background-image: url('../public/MainBG2.png');
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+
+.navbar-options a,
+.navbar-options button {
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 4px white;
+  transition: all 0.5s;
+}
+
+.navbar-options a:hover,
+.navbar-options button:hover {
+  text-decoration: underline;
+  transform: scale(1);
+}
+
+header h1 {
+  text-shadow: 5px 5px 1px rgb(0, 0, 0);
+  color: white;
+}
+
+.tes {
+  background: rgba(33, 33, 33, 0.533);
+}
+
+.cards {
+  background: linear-gradient(45deg, rgba(92, 92, 92, 0.288), rgba(116, 116, 116, 0.162), rgba(92, 92, 92, 0.288));
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 5px rgba(187, 187, 187, 0.311);
+  backdrop-filter: blur(4px);
+  display: flex;
+  transition: all .5s;
+  flex-direction: column;
+}
+
+.cards:hover {
+  animation: rotatemini 0.5s linear;
+  background: linear-gradient(45deg, rgba(92, 92, 92, 0.288), rgba(116, 116, 116, 0.200), rgba(92, 92, 92, 0.288));
+}
+
+.link-hover:hover p span {
+  color: rgb(185, 185, 185);
+}
+
+@keyframes rotatemini {
+  from {
+    transform: rotate(0deg);
+  }
+
+  50% {
+    transform: rotate(0.7deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+
+article h1,
+article h2,
+article h3,
+article h4,
+article h5,
+article h6 {
+  color: white;
+  text-shadow: 5px 5px 1px rgb(0, 0, 0);
+  font-weight: bold;
+}
+
+article p {
+  color: white;
+  text-shadow: 5px 5px 1px rgb(0, 0, 0);
+  font-size: 1rem;
+}
+
+article h1 {
+  font-size: 3.5rem;
+}
+
+article h2 {
+  font-size: 2.5em;
+}
+
+article h3 {
+  font-size: 2em;
+}
+
+article h4 {
+  font-size: 1.5em;
+}
+
+article h5 {
+  font-size: 1.2em;
+}
+
+article h6 {
+  font-size: 1em;
+}
+
+.shine {
+  text-shadow: 1px 1px 5px white;
+}
+
+.pitch-container {
+  background: linear-gradient(45deg, rgba(171, 171, 171, 0.389), rgba(116, 116, 116, 0.162), rgba(92, 92, 92, 0.288));
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 5px rgba(187, 187, 187, 0.311);
+  backdrop-filter: blur(4px);
+  display: flex;
+  transition: all .5s;
+  flex-direction: column;
+}
+
+.pitch-detail-image-container {
+  box-shadow: inset 0px 0px 5px rgba(253, 253, 253, 0.8);
+}
+
+@media screen and (max-width: 768px) {
+  article h1 {
+    font-size: 2.3rem;
+  }
+
+  article h2 {
+    font-size: 1.7rem;
+  }
+
+  article h3 {
+    font-size: 1.3rem;
+  }
+
+  article h4 {
+    font-size: 1.1em;
+  }
+
+  article h5 {
+    font-size: 1em;
+  }
+
+  article h6 {
+    font-size: 0.8em;
+  }
+
+  article p {
+    font-size: 0.8rem;
+  }
+}
+
+.view-blip {
+  width: 10px;
+  height: 10px;
+  top: -4px;
+  right: 0;
+  border-radius: 50%;
+  background-color: #ffffff;
+  position: absolute;
+  animation: blipAnimation 1s infinite;
+}
+
+@keyframes blipAnimation {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.2);
+  }
+
+  100% {
+    transform: scale(1);
+  }
+}
+
+.form-div {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.form-div label {
+  font-weight: lighter;
+}
+
+.form-div-input {
+  background: rgb(13, 14, 20);
+  border: 1px solid rgb(77, 77, 77);
+}
+
+.profile-container {
+  background: linear-gradient(45deg, rgba(171, 171, 171, 0.389), rgba(65, 65, 65, 0.326), rgba(156, 156, 156, 0.288));
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 15px 15px 1px rgba(42, 42, 42, 0.771);
+  backdrop-filter: blur(4px);
+  transition: all .5s;
+
 }
